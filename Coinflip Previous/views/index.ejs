@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Express Coin Flip Simulator</title>
+  <link rel="stylesheet" href="font-awesome.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Coin Flip</h1>
+  <h2>Heads or tails?</h2>
+
+
+  <h3>Results</h3>
+  <ul class="messages">
+  <% for(var i=0; i<coinFlipResults.length; i++) {%>
+    <li class="message">
+      <span>You called <%= coinFlipResults[i].userGuess %> - </span>
+      <span>It's <%= coinFlipResults[i].coinFlipResult %> - </span>
+      <span><%= coinFlipResults[i].winOrLose %></span>
+      <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+    </li>
+  <% } %>
+  </ul>
+
+  <form action="/results" method="POST">
+    <!-- <input type="text" placeholder="guess heads or tails" name="userGuess"> -->
+    <select name="userGuess">
+      <option value="MAKE A CHOICE" >Pick heads or tails</option>
+      <option value="heads" >heads</option>
+      <option value="tails" >tails</option>
+    </select>
+    <button type="submit">Submit</button>
+  </form>
+  <button id="delete-button">Clear Board</button>
+
+  <script src="main.js"></script>
+
+</body>
+</html>
